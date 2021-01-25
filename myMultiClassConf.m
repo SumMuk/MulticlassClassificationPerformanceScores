@@ -1,8 +1,8 @@
 function [TPR, TNR, TP, FP, FN, TN,F1_score,MCC,PRECISION, Overall_Result] = myMultiClassConf(cm_mat,num_labels) 
-tp_m = diag(cm_mat);
+ 
 
 for i = 1:num_labels
-    TP(i) = tp_m(i);
+    TP(i) = cm_mat(i,i);
     FP(i) = sum(cm_mat(:, i), 1) - TP(i);
     FN(i) = sum(cm_mat(i, :), 2) - TP(i);
     TN(i) = sum(cm_mat(:)) - TP(i) - FP(i) - FN(i);
