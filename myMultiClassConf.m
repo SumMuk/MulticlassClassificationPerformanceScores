@@ -1,5 +1,14 @@
 function [TPR, TNR, TP, FP, FN, TN,F1_score,MCC,PRECISION, Overall_Result] = myMultiClassConf(cm_mat,num_labels) 
- 
+% example on how to use this function:
+%Let, 
+%`cm_mat = [100,  0, 0;
+%           20,   60, 20;
+%           2,      0 ,  98];
+
+%then call the function:
+
+%`[TPR, TNR, TP, FP, FN, TN,F1_score,MCC,PRECISION, Overall_Result] = myMultiClassConf(cm_mat,3)`
+
 
 for i = 1:num_labels
     TP(i) = cm_mat(i,i);
